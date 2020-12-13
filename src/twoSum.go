@@ -12,7 +12,7 @@
 // Output: [0,1]
 // Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
-package main  
+package twoSum  
  
 import "fmt"
 
