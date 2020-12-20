@@ -1,0 +1,11 @@
+#!/bin/bash
+
+usage() {
+        echo "Usage: $0 FileName"
+}
+
+if [[ $# -ne 1 ]] ; then usage; exit ; fi
+
+cp template.go src/${1}.go
+
+vim src/${1}.go
