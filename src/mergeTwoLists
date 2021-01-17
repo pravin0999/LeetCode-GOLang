@@ -1,0 +1,39 @@
+// https://leetcode.com/problems/merge-two-sorted-lists
+
+
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+    totalList := &ListNode{}
+    head := totalList
+
+    for l1 != nil || l2 != nil {
+        if l1 != nil && l2 != nil {
+            if l1.Val >= l2.Val {
+                totalList.Next = l2
+                l2 = l2.Next
+            } else {
+                totalList.Next = l1
+                l1 = l1.Next
+            }
+            totalList = totalList.Next
+        }
+
+        if l1 != nil && l2 == nil {
+            totalList.Next = l1
+            return head.Next
+        }
+        if l2 != nil && l1 == nil {
+            totalList.Next = l2
+            return head.Next
+        }
+    }
+
+    return head.Next
+}
+
